@@ -1,0 +1,132 @@
+body {
+    background-color: #c4c4c4;
+    font-family: lato, sans-serif;
+    color: #1d1d1d;
+    padding: 0px;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header { 
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding:16px 0;
+    z-index: 1000;
+    border-radius: 0px 0px 16px 16px;
+
+    /*---El truco del BLUR---*/
+    background-color: rgba(218, 218, 218, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+nav {
+    text-align: center;
+    margin-top: 16px;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #eee;
+    color: #1d1d1d;
+    font-family: lato, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 16px 16px;
+    margin: 8px 8px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px #b5b5b5;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #ddd;
+}
+
+main {
+    flex: 1;
+    padding: 24px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+
+
+h1 { 
+    font-size: 36px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: 24px auto;
+    width: 300px;
+    height: auto;
+    border-radius: 16px;
+}
+
+main > img {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 0px 10px #b5b5b5;
+}
+
+article {
+    background-color: #eee;
+    padding: 16px;
+    border-radius: 16px;
+    margin: 24px auto;
+    max-width: 400px;
+}
+
+article:hover {
+    background-color: #eee;
+    transform:translateY(-4px);
+    box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+p {
+    font-size: 16px;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+    border-radius: 16px 16px 0px 0px;
+
+    /*---El truco del BLUR---*/
+    background-color: rgba(218, 218, 218, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+footer p{
+    font-family: futura, sans-serif;
+    font-size: 10px;
+    text-align: center;
+}
