@@ -11,15 +11,15 @@ body {
 }
 
 header { 
-    position:fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding:16px 0;
+    padding: 16px 0;
     z-index: 1000;
     border-radius: 0px 0px 16px 16px;
 
-    /*---El truco del BLUR---*/
+    /*---BLUR---*/
     background-color: rgba(218, 218, 218, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -27,7 +27,6 @@ header {
 
 nav {
     text-align: center;
-    margin-top: 16px;
 }
 
 nav a {
@@ -38,34 +37,46 @@ nav a {
     font-family: lato, sans-serif;
     font-size: 14px;
     font-weight: bold;
-    padding: 16px 16px;
+    padding: 16px 0px; /* Cambiamos el padding horizontal a 0 porque el ancho ahora lo controla el 'width' */
     margin: 8px 8px;
     border-radius: 6px;
     box-shadow: 0px 0px 10px #b5b5b5;
     transition: background-color 0.3s ease;
+
+    /* --- Truco para que todos tengan el mismo peso --- */
+    width: 120px;       /* Fuerza a que TODOS los botones midan exactamente 120px de ancho */
+    text-align: center; /* Centra el texto horizontalmente dentro del botón */
 }
 
 nav a:hover {
     background-color: #ddd;
 }
 
+nav a.activo {
+    background-color: #b5b5b5;
+    color: #000;
+    box-shadow: inset 0px 0px 5px #888;
+    cursor: default;
+}
+
 main {
     flex: 1;
-    padding: 24px;
+    padding: 100px;
     margin-top: 100px;
     margin-bottom: 100px;
 }
 
-
-
 h1 { 
     font-size: 36px;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 h2 {
     font-size: 24px;
     text-align: center;
+    margin-top: 40px;
+    margin-bottom: 24px;
 }
 
 h3 {
@@ -97,17 +108,11 @@ article {
     max-width: 400px;
 }
 
-article:hover {
-    background-color: #eee;
-    transform:translateY(-4px);
-    box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
 p {
     font-size: 16px;
     padding: 20px;
     text-align: center;
+    line-height: 1.6;
 }
 
 footer {
@@ -119,14 +124,174 @@ footer {
     z-index: 1000;
     border-radius: 16px 16px 0px 0px;
 
-    /*---El truco del BLUR---*/
+    /*---BLUR---*/
     background-color: rgba(218, 218, 218, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-footer p{
+footer p {
     font-family: futura, sans-serif;
     font-size: 10px;
     text-align: center;
+}
+
+/* --- ESTILOS PARA EL LOGO SVG --- */
+.logo-enlace {
+    margin-right: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.logo-svg {
+    height: 32px;
+    width: auto;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.logo-enlace:hover .logo-svg {
+    transform: scale(1.05);
+}
+
+/* ---BOTÓN DE MODO OSCURO --- */
+.btn-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: transform 0.2s;
+}
+
+.btn-toggle:hover {
+    transform: scale(1.2);
+}
+
+nav a, .btn-toggle {
+    vertical-align: middle;
+}
+
+/* ---CARRUSEL--- */
+.carrusel-container {
+    position: relative;
+    max-width: 420px;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrusel-tracks {
+    display: flex;
+    overflow: hidden;
+}
+
+.carrusel-tracks article {
+    margin: 0 auto;
+}
+
+.carrusel-item {
+    display: none; 
+    width: 100%;
+    animation: aparecerHobby 0.4s ease-in-out;
+}
+
+.carrusel-item.activo {
+    display: block;
+}
+
+/* --- ESTILO DE BOTONES REDONDOS --- */
+.carrusel-btn {
+    position: absolute;
+    
+    /* Dimensiones círculo perfecto */
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    
+    /* Centrado de la flecha interior */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Colores y bordes */
+    background-color: #eee;
+    color: #1d1d1d;
+    border: 1px solid #b5b5b5;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+    
+    /* Sombra suave */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.carrusel-btn:hover {
+    background-color: #ddd;
+    transform: scale(1.1); /* Se agranda un poquito de forma fluida */
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.prev { left: -100px; }
+.next { right: -100px; }
+
+/* --- BOTONES PARA MODO OSCURO --- */
+body.dark-mode .carrusel-btn {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .carrusel-btn:hover {
+    background-color: #3a3a3a;
+    color: #fff;
+}
+
+@keyframes aparecerHobby {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+body.dark-mode .carrusel-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+body.dark-mode .carrusel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- MODO OSCURO GLOBAL (.dark-mode) --- */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header, body.dark-mode footer {
+    background-color: rgba(30, 30, 30, 0.8);
+}
+
+body.dark-mode nav a {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    box-shadow: 0px 0px 10px #050505;
+}
+
+body.dark-mode nav a:hover {
+    background-color: #3a3a3a;
+}
+
+body.dark-mode nav a.activo {
+    background-color: #555;
+    color: #fff;
+    box-shadow: inset 0px 0px 5px #000;
+}
+
+body.dark-mode article {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
 }

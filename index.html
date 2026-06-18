@@ -3,36 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre mí</title>
+    <title>Sobre mí - Inicio</title>
     <link rel="stylesheet" href="miestilo.css">
 </head>
 
 <body>
 
 <header>
-
     <nav>
-        <a button href="index.html">Inicio</a>
-        <a button href="hobbies.html">Mis hobbies</a>
+        <a href="index.html" class="logo-enlace">
+            <img src="img/logo.svg" alt="Logo" class="logo-svg">
+        </a>
+        
+        <a class="activo" href="index.html">Inicio</a>
+        <a href="juego.html">Mi Juego</a>
+        <button id="btn-dark-mode" class="btn-toggle">🌙</button>
     </nav>
-
 </header>
 
 <main>
-
     <h1>Bienvenidos</h1>
-
-    <p>Hola, mi nombre es Pablo, estoy aprendiendo desarrollo web</p>
-
+    <p>Hola, mi nombre es Pablo, estoy aprendiendo desarrollo web.</p>
+    
     <img src="img/perfil.jpg" alt="Foto de perfil">
 
-<p>Este es una practica de desarrollo web que tiene como objetivo compartir mis hobbies favoritos.</p>
-    
+    <p>Esta es una práctica de desarrollo web que tiene como objetivo compartir mis hobbies favoritos.</p>
+
+    <section>
+        <h2>Mis Hobbies</h2>
+        
+        <div class="carrusel-container">
+            <button class="carrusel-btn prev" id="prev-btn">&#10094;</button>
+            
+            <div class="carrusel-tracks">
+                <article class="carrusel-item activo">
+                    <h3>Videojuegos</h3>
+                    <p>Me gusta jugar videojuegos con mis amigos, especialmente los fines de semana.</p>
+                    <img src="img/videojuegos.jpg" alt="Control de videojuegos">
+                </article>
+
+                <article class="carrusel-item">
+                    <h3>Ejercicio</h3>
+                    <p>Realizar ejercicio me ayuda a mantenerme activo y despejar mi mente.</p>
+                    <img src="img/ejercicio.jpeg" alt="Ejercicio">
+                </article>
+
+                <article class="carrusel-item">
+                    <h3>Música</h3>
+                    <p>Escucho música mientras trabajo o estudio.</p>
+                    <img src="img/musica.jpg" alt="Banda musical">
+                </article>
+
+                <article class="carrusel-item">
+                    <h3>Series</h3>
+                    <p>Disfruto ver series junto con mi pareja.</p>
+                    <img src="img/series.jpg" alt="Series de televisión">
+                </article>
+            </div>
+
+            <button class="carrusel-btn next" id="next-btn">&#10095;</button>
+        </div>
+    </section>
 </main>
 
 <footer>
     <p>2026 - Mi página personal</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
